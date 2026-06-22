@@ -220,6 +220,10 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
   .chips{grid-template-columns:1fr 1fr;gap:12px}
   .chips .chip2{font-size:16px;padding:18px 16px}
   .certs{gap:16px}.certs img{height:64px}
+  .pres-left .lead{font-size:16px}
+  .huella .row{padding:8px 0;gap:11px;flex-wrap:wrap}
+  .huella .row b{font-size:18px}
+  .huella .row span{font-size:14px}
   .featured-body{padding:24px}
   .panel .navy-side,.panel .orange-side{padding:30px 24px;min-width:0}
   .contact-rows .r{font-size:15px;overflow-wrap:anywhere}
@@ -241,12 +245,10 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 .anim .reveal.in{opacity:1;transform:none}
 .anim .reveal.rv-img{transform:translateY(36px) scale(.96)}
 .anim .reveal.rv-img.in{transform:none}
-@media (prefers-reduced-motion:no-preference){
-  @keyframes ringspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-  @keyframes hubpulse{0%,100%{box-shadow:0 12px 34px rgba(240,136,31,.42)}50%{box-shadow:0 16px 56px rgba(240,136,31,.62)}}
-  .sys .ring{animation:ringspin 42s linear infinite}
-  .sys .hub{animation:hubpulse 3.4s ease-in-out infinite}
-}
+@keyframes ringspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes hubpulse{0%,100%{box-shadow:0 12px 34px rgba(240,136,31,.42)}50%{box-shadow:0 16px 56px rgba(240,136,31,.62)}}
+.sys .ring{animation:ringspin 42s linear infinite}
+.sys .hub{animation:hubpulse 3.4s ease-in-out infinite}
 .serv-card{transition:transform .42s ease,background-size .7s ease;background-size:cover}
 .serv-card:hover{transform:translateY(-7px);background-size:116%}
 .es-cards .card,.cred-card,.chip2,.stat{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
@@ -265,7 +267,7 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 .huella .row:hover{transform:translateX(6px)}
 .nos-img,.cred-photo,.pres-map{transition:transform .5s ease}
 </style>
-<script>(function(){try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;}catch(e){}document.documentElement.className+=' anim';})();</script>
+<script>document.documentElement.className+=' anim';</script>
 </head>
 <body>
 
