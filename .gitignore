@@ -1,0 +1,8 @@
+node_modules/
+_raw/
+package.json
+package-lock.json
+process.js
+_*.png
+_*.jpg
+.DS_Store
