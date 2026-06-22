@@ -32,9 +32,9 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 .btn .arr .ic{width:16px;height:16px}
 
 /* HERO */
-.hero{background:linear-gradient(160deg,#fff,#E7ECEF);overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;padding-top:18px}
-.hero-text{display:flex;flex-direction:column}
+.hero{background:linear-gradient(160deg,#fff,#E7ECEF);overflow:hidden;padding-top:clamp(26px,2.8vw,44px);padding-bottom:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:stretch}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding-bottom:clamp(32px,4vw,56px)}
 .hero-title{font-size:clamp(40px,5.6vw,76px);font-weight:800;line-height:1.02;letter-spacing:-.02em;color:var(--navy)}
 .hero-title .o{color:var(--orange)}
 .hero-text .lead{margin-top:20px;max-width:560px}
@@ -137,9 +137,9 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 .sys .n-left{left:0;top:50%;transform:translateY(-50%)}
 
 /* CREDENCIALES */
-.cred{position:relative;overflow:hidden;background:var(--bg)}
-.cred-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
-.cred-left{display:flex;flex-direction:column;gap:18px}
+.cred{position:relative;overflow:hidden;background:var(--bg);padding-bottom:0}
+.cred-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:stretch}
+.cred-left{display:flex;flex-direction:column;gap:18px;padding-bottom:clamp(44px,5.5vw,74px)}
 .cred-cards{display:flex;flex-direction:column;gap:16px;margin-top:6px}
 .cred-card{display:flex;gap:16px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:20px}
 .cred-card .ci{color:var(--orange);font-size:32px;flex:none}
@@ -186,8 +186,10 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:960px){
-  .hero-grid{grid-template-columns:1fr;gap:28px}
-  .hero-visual{margin-top:8px}
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .hero-text{padding-bottom:16px}
+  .hero-visual{margin-top:4px}
+  .hero-visual img{max-width:440px}
   .tira-card{grid-template-columns:1fr}
   .tira-img{min-height:160px}
   .tira-cols{grid-template-columns:1fr;padding:8px 22px}
@@ -197,9 +199,11 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
   .nos-grid{grid-template-columns:1fr;gap:26px}
   .nos-img{aspect-ratio:16/11}
   .dif-grid{grid-template-columns:1fr;gap:34px}
-  .cred-grid{grid-template-columns:1fr;gap:28px}
+  .cred{padding-bottom:40px}
+  .cred-grid{grid-template-columns:1fr;gap:24px}
+  .cred-left{padding-bottom:0}
   .cred-photo{order:-1}
-  .cred-photo img{max-width:320px;margin:0 auto}
+  .cred-photo img{max-width:300px;margin:0 auto}
   .cred-card{gap:14px}
   .pres-grid{grid-template-columns:1fr;gap:24px}
   .panel{grid-template-columns:1fr}
