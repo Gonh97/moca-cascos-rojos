@@ -6,3 +6,5 @@ process.js
 _*.png
 _*.jpg
 .DS_Store
+
+.vercel
