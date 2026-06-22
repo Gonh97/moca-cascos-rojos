@@ -235,7 +235,37 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 @media (max-width:420px){
   .serv-cards,.es-cards,.chips,.stats,.sys .nodes{grid-template-columns:1fr}
 }
+
+/* ===== ANIMACIONES ===== */
+.anim .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}
+.anim .reveal.in{opacity:1;transform:none}
+.anim .reveal.rv-img{transform:translateY(36px) scale(.96)}
+.anim .reveal.rv-img.in{transform:none}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes ringspin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+  @keyframes hubpulse{0%,100%{box-shadow:0 12px 34px rgba(240,136,31,.42)}50%{box-shadow:0 16px 56px rgba(240,136,31,.62)}}
+  .sys .ring{animation:ringspin 42s linear infinite}
+  .sys .hub{animation:hubpulse 3.4s ease-in-out infinite}
+}
+.serv-card{transition:transform .42s ease,background-size .7s ease;background-size:cover}
+.serv-card:hover{transform:translateY(-7px);background-size:116%}
+.es-cards .card,.cred-card,.chip2,.stat{transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.es-cards .card:hover,.cred-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.1);border-color:#dde5ea}
+.chip2:hover{transform:translateY(-4px);border-color:var(--orange);box-shadow:0 12px 26px rgba(240,136,31,.15)}
+.btn:hover{transform:translateY(-2px)}
+.sys .node{transition:background .3s ease,transform .3s ease,border-color .3s ease}
+.sys .node:hover{background:rgba(255,255,255,.15);transform:translateY(-4px);border-color:rgba(240,136,31,.5)}
+.certs img{transition:transform .3s ease}
+.certs img:hover{transform:scale(1.1)}
+.tira-card,.featured,.panel{transition:transform .4s ease,box-shadow .4s ease}
+.featured:hover,.panel:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(20,40,50,.16)}
+.es-cards .card .ci{transition:transform .35s ease}
+.es-cards .card:hover .ci{transform:scale(1.15) rotate(-5deg)}
+.huella .row{transition:transform .25s ease}
+.huella .row:hover{transform:translateX(6px)}
+.nos-img,.cred-photo,.pres-map{transition:transform .5s ease}
 </style>
+<script>(function(){try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;}catch(e){}document.documentElement.className+=' anim';})();</script>
 </head>
 <body>
 
@@ -473,5 +503,19 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
   </div>
 </section>
 
+<script>
+(function(){
+  if(!document.documentElement.classList.contains('anim'))return;
+  var SEL='.hero-title,.hero-text .lead,.hero-stats,.hero-visual,.tira-card,.nos-img,.nos-info>*,.stat,.serv-head>*,.serv-card,.featured,.es-head>*,.es-cards .card,.dif-left>.eyebrow,.dif-left>h2,.dif-left>.lead,.checklist .item,.sys,.cred-left>.eyebrow,.cred-left>h2,.cred-left>.lead,.cred-card,.certs,.cred-photo,.pres-left>.eyebrow,.pres-left>h2,.pres-left>.lead,.huella .row,.pres-map,.sec-head>*,.chip2,.navy-side>*,.orange-side>*';
+  var imgSel='.hero-visual,.nos-img,.cred-photo,.pres-map,.sys';
+  var els=Array.prototype.slice.call(document.querySelectorAll(SEL));
+  els.forEach(function(el){el.classList.add('reveal');if(el.matches(imgSel))el.classList.add('rv-img');});
+  els.forEach(function(el){var sibs=Array.prototype.slice.call(el.parentNode.children).filter(function(c){return c.classList&&c.classList.contains('reveal');});var i=sibs.indexOf(el);if(i>0)el.style.transitionDelay=Math.min(i*70,420)+'ms';});
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -7% 0px'});
+  els.forEach(function(el){io.observe(el);});
+  setTimeout(function(){els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('in');});},300);
+})();
+</script>
 </body>
 </html>
