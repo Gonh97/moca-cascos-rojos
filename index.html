@@ -16,8 +16,8 @@
   --bg:#F7F9FB;--soft:#F4F6F4;--line:#E4E9ED;--c1:#C7D3D9;--c2:#AFC0C8;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.4}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.4;overflow-x:hidden;overflow-wrap:break-word}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 .wrap{width:min(1300px,100% - 48px);margin-inline:auto}
@@ -35,7 +35,7 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
 .hero{background:linear-gradient(160deg,#fff,#E7ECEF);overflow:hidden;padding-top:clamp(26px,2.8vw,44px);padding-bottom:0}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:stretch}
 .hero-text{display:flex;flex-direction:column;justify-content:center;padding-bottom:clamp(32px,4vw,56px)}
-.hero-title{font-size:clamp(40px,5.6vw,76px);font-weight:800;line-height:1.02;letter-spacing:-.02em;color:var(--navy)}
+.hero-title{font-size:clamp(31px,5.6vw,76px);font-weight:800;line-height:1.04;letter-spacing:-.02em;color:var(--navy)}
 .hero-title .o{color:var(--orange)}
 .hero-text .lead{margin-top:20px;max-width:560px}
 .hero-stats{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap;margin-top:30px}
@@ -221,7 +221,9 @@ h2{font-size:clamp(28px,3.6vw,56px);font-weight:800;line-height:1.07;letter-spac
   .chips .chip2{font-size:16px;padding:18px 16px}
   .certs{gap:16px}.certs img{height:64px}
   .featured-body{padding:24px}
-  .panel .navy-side,.panel .orange-side{padding:30px 24px}
+  .panel .navy-side,.panel .orange-side{padding:30px 24px;min-width:0}
+  .contact-rows .r{font-size:15px;overflow-wrap:anywhere}
+  .qrcard img{width:200px;height:200px}
   /* sistema diferenciador a columna */
   .sys{aspect-ratio:auto;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:420px}
   .sys .ring{display:none}
